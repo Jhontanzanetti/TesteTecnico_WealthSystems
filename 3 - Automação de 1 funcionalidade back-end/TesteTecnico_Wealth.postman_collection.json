@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "b0b55b3b-2b0e-4b59-aab1-bd0863b4bde8",
+		"name": "TesteTecnico_Wealth",
+		"description": "Testes realizados na api http://jsonplaceholder.typicode.com/users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Valida_GET_Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "955914f1-201b-4e86-84b0-37dacacb9a40",
+						"exec": [
+							"//validação de alguns campos do schmea Json",
+							"const schema = {",
+							"    \"type\": \"object\",",
+							"    \"properties\" : {",
+							"        \"id\": {\"type\": \"integer\"},",
+							"        \"name\": {\"type\": \"string\"},",
+							"        \"address\": {",
+							"            \"type\": \"object\",",
+							"            \"properties\": {",
+							"                \"street\": {\"type\": \"string\"},",
+							"                \"geo\": {",
+							"                    \"type\": \"object\",",
+							"                    \"properties\": {",
+							"                        \"lat\": {\"type\": \"string\"},",
+							"                        \"lng\": {\"type\": \"string\"}",
+							"                    },",
+							"                    \"required\": [\"lat\", \"lng\"]",
+							"                }",
+							"            },",
+							"            \"required\": [\"street\"]",
+							"        },",
+							"        \"phone\": {\"type\": \"string\"}",
+							"    },",
+							"    \"required\": [\"id\", \"name\", \"address\"]",
+							"};",
+							"",
+							"//caso a resposta do HTTP seja 200 vai validar o Schema",
+							"if(pm.response.to.have.status(200)){",
+							"    pm.test(\"Schema é valido\", () => {",
+							"        pm.response.to.have.jsonSchema(schema);",
+							"    });",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://jsonplaceholder.typicode.com/users/1",
+					"protocol": "http",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valida_GET_Array",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c27cb1dd-3c03-4ee7-8bea-fcefed95e96f",
+						"exec": [
+							"const schema = {",
+							"    \"type\": \"array\"",
+							"};",
+							"",
+							"//caso a resposta do HTTP seja 200 vai validar o Schema",
+							"if(pm.response.to.have.status(200)){",
+							"    pm.test(\"Schema é valido\", () => {",
+							"        pm.response.to.have.jsonSchema(schema);",
+							"    });",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://jsonplaceholder.typicode.com/users",
+					"protocol": "http",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valida_POST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8d333499-080e-413d-8283-546cfab88be6",
+						"exec": [
+							"const schema = {",
+							"    \"type\": \"object\",",
+							"    \"properties\": {",
+							"        \"id\": {\"type\": \"integer\"},",
+							"        \"name\": {\"type\": \"string\"},",
+							"        \"username\": {\"type\": \"string\"},",
+							"        \"email\": {\"type\": \"string\"},",
+							"        \"phone\": {\"type\": \"string\"},",
+							"        \"website\": {\"type\": \"string\"}",
+							"    },",
+							"    \"required\": [\"id\", \"name\", \"username\", \"email\", \"phone\", \"website\"]",
+							"",
+							"};",
+							"",
+							"//caso a resposta do HTTP seja 201 vai validar o Schema",
+							"if(pm.response.to.have.status(201)){",
+							"    pm.test(\"Schema é valido\", () => {",
+							"        pm.response.to.have.jsonSchema(schema);",
+							"    });",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"name\": \"Leanne Graham\",\n    \"username\": \"Bret\",\n    \"email\": \"Sincere@april.biz\",\n    \"phone\": \"1-770-736-8031 x56442\",\n    \"website\": \"hildegard.org\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://jsonplaceholder.typicode.com/users",
+					"protocol": "http",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valida_PUT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "76fd75ff-2c12-40bd-99e4-c0c07c7656df",
+						"exec": [
+							"const schema = {",
+							"    \"type\": \"object\",",
+							"    \"properties\": {",
+							"        \"id\": {\"type\": \"integer\"},",
+							"        \"name\": {\"type\": \"string\"},",
+							"        \"username\": {\"type\": \"string\"},",
+							"        \"email\": {\"type\": \"string\"},",
+							"        \"phone\": {\"type\": \"string\"},",
+							"        \"website\": {\"type\": \"string\"}",
+							"    },",
+							"    \"required\": [\"id\", \"name\", \"username\", \"email\", \"phone\", \"website\"]",
+							"",
+							"};",
+							"",
+							"//caso a resposta do HTTP seja 200 vai validar o Schema",
+							"if(pm.response.to.have.status(200)){",
+							"    pm.test(\"Schema é valido\", () => {",
+							"        pm.response.to.have.jsonSchema(schema);",
+							"    });",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"name\": \"Leanne Teste\",\n    \"username\": \"Teste\",\n    \"email\": \"Sincere@april.biz\",\n    \"phone\": \"1-770-736-8031 x56442\",\n    \"website\": \"hildegard.org\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://jsonplaceholder.typicode.com/users/1",
+					"protocol": "http",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valida_DELETE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fe5c99f3-e8eb-4ae2-9e54-37eef2f1b2d7",
+						"exec": [
+							"const schema = {",
+							"    \"type\": \"object\"",
+							"};",
+							"",
+							"//caso a resposta do HTTP seja 200 vai validar o Schema",
+							"// if(pm.response.to.have.status(200)){",
+							"if(Object){    ",
+							"    pm.test(\"Schema é valido\", () => {",
+							"        pm.response.to.have.jsonSchema(schema);",
+							"    });",
+							"};",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://jsonplaceholder.typicode.com/users/1",
+					"protocol": "http",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
