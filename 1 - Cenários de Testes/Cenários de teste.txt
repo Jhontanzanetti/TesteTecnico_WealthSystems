@@ -1,0 +1,84 @@
+
+Funcionalidade: Validar oportunidades.
+    A fim de validar as oportunidades (ganhas, perdidas, abertas, descartadas)o usuário deve ser capaz de consultar essas opotunidades.
+
+  Cenário: Validar valor de oportunidades ganhas.
+    Dado que o usuário esteja ativo.
+    Quando selecionada a tela de oportunidades.
+    Então deve apresentar o valor de R$ 20.000,00 de oportunidades ganhas.
+
+  Cenário: Validar valor de oportunidades perdidas.
+    Dado que o usuário esteja ativo.
+    Quando selecionada a tela de oportunidades.
+    Então deve apresentar o valor de R$ 4.300,00 de oportunidades perdidas.
+
+  Cenário: Validar valor de oportunidades abertas.
+    Dado que o usuário esteja ativo.
+    Quando selecionada a tela de oportunidades.
+    Então deve apresentar a descrição "Diversas moedas" de oportunidades perdidas.
+
+  Cenário: Validar valor de oportunidades descartadas.
+    Dado que o usuário esteja ativo.
+    Quando selecionada a tela de oportunidades.
+    Então não deve apresentar valor.
+
+
+
+Funcionalidade: Validar endereço.
+    A fim de validar seu endereço o usuário deve ser capaz de consultar a tela de local. 
+
+  Cenário: Validar endereço do usuário.
+    Dado que o usuário esteja ativo
+    E tenha um endereço cadastrado.
+    Quando selecionada a tela de local.
+    Então deve apresentar o endereço "Avenida Brasil, 4019" ; "Trabalho".
+
+
+Funcionalidade: Validar limites.
+    A fim de validar seus saldos o usuário deve ser capaz de consultar o seu limite de crédito. 
+
+  Cenário: Validar o limite de crédito concedido.
+    Dado que o usuário esteja ativo.
+   	Quando selecionada a tela de limite de crédito.
+    Então deve apresentar o valor de R$12.000,20 de limite concedido.
+
+  Cenário: Validar o limite de crédito disponível.
+    Dado que o usuário esteja ativo.
+   	Quando selecionada a tela de limite de crédito.
+    Então deve apresentar o valor de R$3.1055,00 de limite disponível.
+
+
+
+Funcionalidade: Validar Títulos financeiros.
+    A fim de validar seus títulos o usuário deve ser capaz de consultar os títulos. 
+
+  Cenário: Validar o valor de títulos vencidos.
+    Dado que o usuário esteja ativo.
+   	Quando selecionada a tela de títulos financeiros.
+    Então deve apresentar o valor de R$3.105,00 de títulos vencidos.
+
+  Cenário: Validar o valor de títulos a vencer.
+    Dado que o usuário esteja ativo.
+   	Quando selecionada a tela de títulos financeiros.
+    Então deve apresentar o valor de R$3.105,00 de títulos vencidos.
+
+  Cenário: Validar o valor de títulos pagos.
+    Dado que o usuário esteja ativo.
+   	Quando selecionada a tela de títulos financeiros.
+    Então deve apresentar o valor de R$3.105,00 de títulos pagos.
+
+
+
+Funcionalidade: Validar quantidade de atividades.
+    A fim de validar a quantidade de atividades (atrasadas, andamento, previstas e concluídas) o usuário deve ser capaz de consultar as atividades. 
+
+  Cenário: Validar quantidade de atividades.
+    Dado que o usuário esteja ativo.
+    E possua atividades cadastradas.
+   	Quando selecionada a tela de atividades
+    Então deve apresentar os seguintes valores de atividades:
+    	Total	 	: 25
+    	Em atraso	: 1
+    	Em andamento: 0
+    	Previstas   : 3
+    	Concluídas  : 21
